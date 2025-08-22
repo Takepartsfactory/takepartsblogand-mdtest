@@ -2,24 +2,21 @@
 # https://developers.cloudflare.com/pages/platform/redirects/
 
 # Specific redirects first (performance optimization)
-/404 /404/ 200
-/feed /rss.xml/ 200
-/rss /rss.xml/ 200
+/404 /404.html 200
+/feed /rss.xml 301
+/rss /rss.xml 301
 
 # Legacy URL redirects (if migrating from old site)
-/old-services /services/ 301
-/old-about /about/ 301
-/old-contact /contact/ 301
+/old-services /services 301
+/old-about /about 301
+/old-contact /contact 301
 
 # Blog redirects with Japanese paths
-/blog/cnc-lathe-guide /blog/cnc-lathe-precision-machining-guide/ 301
-/blog/steel-machining /blog/stainless-steel-machining-tips/ 301
+/blog/cnc-lathe-guide /blog/cnc-lathe-precision-machining-guide 301
+/blog/steel-machining /blog/stainless-steel-machining-tips 301
 
-# Japanese language redirects
+# Japanese language redirects (if adding multilingual support later)
 /ja/* /:splat 301
 
-# Force HTTPS (fix status code)
-http://take-parts-factory.pages.dev/* https://take-parts-factory.pages.dev/:splat 301
-
-# Trailing slash consistency (last to avoid conflicts)
-/* /:splat/ 301
+# Remove the problematic trailing slash rule that causes infinite loops
+# Cloudflare Pages handles trailing slashes automatically

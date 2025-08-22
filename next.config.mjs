@@ -8,7 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 const nextConfig = withBundleAnalyzer({
   output: 'export',
   distDir: 'out',
-  trailingSlash: true,
+  trailingSlash: false,
   poweredByHeader: false,
   compress: true,
   
