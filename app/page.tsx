@@ -17,7 +17,7 @@ export async function generateMetadata() {
       title: page?.frontmatter.title || 'NC旋盤加工の限界を超える | Take Parts Factory',
       description: page?.frontmatter.description || siteConfig.siteDescription,
       openGraph: {
-        title: page?.frontmatter.title || 'NC旋盤加工の新たな可能性 | Take Parts Factory',
+        title: page?.frontmatter.title || 'NC旋盤加工の限界を超える | Take Parts Factory',
         description: page?.frontmatter.description || siteConfig.siteDescription,
         type: 'website',
         locale: 'ja_JP',
@@ -25,7 +25,7 @@ export async function generateMetadata() {
       },
       twitter: {
         card: 'summary_large_image',
-        title: page?.frontmatter.title || 'NC旋盤加工の新たな可能性 | Take Parts Factory',
+        title: page?.frontmatter.title || 'NC旋盤加工の限界を超える | Take Parts Factory',
         description: page?.frontmatter.description || siteConfig.siteDescription,
       },
       keywords: siteConfig.seo?.keywords || [],
@@ -76,7 +76,7 @@ export default async function Home() {
           {/* Hero content */}
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
             <h1 className="text-display font-bold text-white mb-8 animate-fade-up text-shadow-lg font-japanese">
-              NC旋盤加工の新たな可能性
+              NC旋盤加工の限界を超える
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay font-japanese">
