@@ -16,7 +16,10 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "test-build": "npm run build && npm run preview"
+    "test-build": "npm run build && npm run preview",
+    "blog:check": "node scripts/blog-helper.js check",
+    "blog:help": "node scripts/blog-helper.js help",
+    "build:safe": "npm run blog:check && npm run build"
   },
   "dependencies": {
     "@next/mdx": "^14.2.0",
