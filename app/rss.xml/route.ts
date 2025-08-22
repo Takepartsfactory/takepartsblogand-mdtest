@@ -53,7 +53,21 @@ export async function GET(request: NextRequest) {
 
 ${posts.map((post) => {
   const postUrl = `${siteUrl}/blog/${post.slug}`;
-  const postDate = new Date(post.frontmatter.date).toISOString();
+  
+  // Safely parse the date, fallback to current date if invalid
+  let postDate: string
+  try {
+    const parsedDate = new Date(post.frontmatter.date)
+    if (isNaN(parsedDate.getTime())) {
+      console.warn(`Invalid date for RSS post ${post.slug}: ${post.frontmatter.date}`)
+      postDate = new Date().toISOString()
+    } else {
+      postDate = parsedDate.toISOString()
+    }
+  } catch (error) {
+    console.warn(`Error parsing date for RSS post ${post.slug}: ${post.frontmatter.date}`)
+    postDate = new Date().toISOString()
+  }
   
   // Clean and prepare content for RSS
   const cleanContent = post.content
@@ -80,12 +94,19 @@ ${posts.map((post) => {
       <div style="background-color: #f8f9fa; padding: 1.5em; border-radius: 8px; margin-top: 2em;">
         <h3 style="margin: 0 0 1em 0; color: #333;">記事情報</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="margin-bottom: 0.5em;"><strong>投稿日：</strong>${new Date(post.frontmatter.date).toLocaleDateString('ja-JP', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            weekday: 'long'
-          })}</li>
+          <li style="margin-bottom: 0.5em;"><strong>投稿日：</strong>${(() => {
+            try {
+              const date = new Date(post.frontmatter.date)
+              return isNaN(date.getTime()) ? '日付不明' : date.toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long'
+              })
+            } catch {
+              return '日付不明'
+            }
+          })()}</li>
           ${post.frontmatter.author ? `<li style="margin-bottom: 0.5em;"><strong>著者：</strong>${post.frontmatter.author}</li>` : ''}
           <li style="margin-bottom: 0.5em;"><strong>読了時間：</strong>約${post.readingTime}分</li>
           ${post.frontmatter.tags ? `<li style="margin-bottom: 0.5em;"><strong>タグ：</strong>${post.frontmatter.tags.join(', ')}</li>` : ''}

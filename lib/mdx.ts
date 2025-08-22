@@ -83,31 +83,54 @@ export const getAllPosts = cache(async (): Promise<Post[]> => {
     const mdxFiles = files.filter(file => file.endsWith('.mdx'));
 
     const posts = mdxFiles.map((file) => {
-      const slug = file.replace(/\.mdx$/, '');
-      const fullPath = path.join(POSTS_PATH, file);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
+      try {
+        const slug = file.replace(/\.mdx$/, '');
+        const fullPath = path.join(POSTS_PATH, file);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data, content } = matter(fileContents);
 
-      const frontmatter = data as PostFrontmatter;
-      
-      // Skip unpublished posts
-      if (frontmatter.published === false) {
+        const frontmatter = data as PostFrontmatter;
+        
+        // Skip unpublished posts
+        if (frontmatter.published === false) {
+          return null;
+        }
+
+        // Skip posts with invalid or missing dates
+        if (!frontmatter.date) {
+          console.warn(`投稿にdate フィールドがありません: ${file}`);
+          return null;
+        }
+
+        // Validate date format
+        const postDate = new Date(frontmatter.date);
+        if (isNaN(postDate.getTime())) {
+          console.warn(`無効な日付フォーマット: ${file} - ${frontmatter.date}`);
+          return null;
+        }
+
+        return {
+          slug,
+          frontmatter,
+          content,
+          readingTime: calculateReadingTime(content)
+        } as Post;
+      } catch (error) {
+        console.error(`投稿ファイルの処理エラー: ${file}`, error);
         return null;
       }
-
-      return {
-        slug,
-        frontmatter,
-        content,
-        readingTime: calculateReadingTime(content)
-      } as Post;
     }).filter(Boolean) as Post[];
 
-    // Sort by date (most recent first)
+    // Sort by date (most recent first) with safe date parsing
     return posts.sort((a, b) => {
       const dateA = new Date(a.frontmatter.date);
       const dateB = new Date(b.frontmatter.date);
-      return dateB.getTime() - dateA.getTime();
+      
+      // Fallback for invalid dates
+      const timeA = isNaN(dateA.getTime()) ? 0 : dateA.getTime();
+      const timeB = isNaN(dateB.getTime()) ? 0 : dateB.getTime();
+      
+      return timeB - timeA;
     });
 
   } catch (error) {
