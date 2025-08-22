@@ -578,6 +578,312 @@ body {
   100% { background-position: -200% 0; }
 }
 
+/* Sonos-Inspired Premium Animations */
+
+/* Video Background Support */
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Enhanced Parallax System */
+.parallax-slow {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-medium {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-fast {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* Scroll-Triggered Frame Animation */
+.frame-sequence {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 0.05s ease-out;
+}
+
+/* Premium 3D Hover Effects */
+.hover-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-3d:hover {
+  transform: rotateX(5deg) rotateY(-5deg) translateZ(20px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hover-3d-reverse:hover {
+  transform: rotateX(-5deg) rotateY(5deg) translateZ(20px);
+}
+
+/* Magnetic Button Effect */
+.magnetic-btn {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  background: linear-gradient(135deg, #DC2626, #991B1B);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.magnetic-btn:hover::before {
+  left: 100%;
+}
+
+.magnetic-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 15px 35px rgba(220, 38, 38, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Zoom on Hover */
+.zoom-on-hover {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.zoom-on-hover img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.zoom-on-hover:hover img {
+  transform: scale(1.1);
+}
+
+/* Advanced Backdrop Blur */
+.backdrop-blur-premium {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.backdrop-blur-premium-dark {
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth Scroll Indicator */
+.scroll-indicator {
+  width: 2px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.scroll-indicator::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  animation: scroll-indicator 2s infinite;
+}
+
+@keyframes scroll-indicator {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* Enhanced Bento Grid Animations */
+.bento-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-hover:hover::before {
+  opacity: 1;
+}
+
+.bento-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Staggered Animation System */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: stagger-fade-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes stagger-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fluid Typography */
+.text-fluid-sm {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.text-fluid-base {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.text-fluid-lg {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.text-fluid-2xl {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.text-fluid-3xl {
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+/* Intersection Observer Enhanced Animations */
+.observe-slide-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.observe-slide-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.observe-fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.observe-fade-in.in-view {
+  opacity: 1;
+}
+
+.observe-scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.observe-scale-in.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* GPU Acceleration Utilities */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .hover-3d:hover,
+  .magnetic-btn:hover,
+  .bento-hover:hover {
+    transform: none;
+  }
+  
+  .scroll-indicator::before {
+    animation: none;
+  }
+  
+  .stagger-children > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Print Styles for Japanese Business Documents */
 @media print {
   .font-japanese {

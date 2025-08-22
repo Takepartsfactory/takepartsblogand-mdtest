@@ -2,6 +2,15 @@
 export { default as Navigation } from './Navigation'
 export { default as Footer } from './Footer'
 
+// Sonos-Inspired Premium Components
+export { default as VideoBackground } from './VideoBackground'
+export { 
+  default as ScrollAnimations, 
+  ParallaxElement, 
+  FrameSequence 
+} from './ScrollAnimations'
+export { default as ProductShowcase } from './ProductShowcase'
+
 // Bento Box Layout System Components
 export { BentoGrid } from './BentoGrid'
 export { BentoBox } from './BentoBox'

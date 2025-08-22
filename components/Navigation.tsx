@@ -93,9 +93,9 @@ export const Navigation: React.FC<NavigationProps> = ({
     <>
       <nav 
         className={`
-          fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out
+          fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out gpu-accelerated
           ${isScrolled 
-            ? 'glass-effect-dark shadow-lg border-b border-white/10' 
+            ? 'backdrop-blur-premium-dark shadow-xl border-b border-white/10' 
             : 'bg-transparent'
           }
           ${className}
@@ -110,7 +110,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 className="flex items-center space-x-3 group"
                 aria-label="ホームに戻る"
               >
-                <div className="w-10 h-10 bg-gradient-to-r from-brand-red to-red-600 rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 ease-in-out group-hover:scale-110">
+                <div className="w-10 h-10 magnetic-btn flex items-center justify-center shadow-lg">
                   <span className="text-white font-bold text-lg">T</span>
                 </div>
                 <div className="hidden sm:block">
@@ -132,10 +132,10 @@ export const Navigation: React.FC<NavigationProps> = ({
                     key={item.href}
                     href={item.href}
                     className={`
-                      px-3 py-2 rounded-lg text-sm font-medium font-japanese transition-all duration-300 ease-in-out japanese-hover link-lift
+                      px-3 py-2 rounded-lg text-sm font-medium font-japanese transition-all duration-400 ease-in-out japanese-hover link-lift gpu-accelerated
                       ${isActivePage(item.href)
-                        ? 'bg-brand-red text-white shadow-lg glow-red'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        ? 'magnetic-btn text-white shadow-lg glow-red'
+                        : 'text-gray-300 hover:text-white hover:bg-white/10 hover-3d'
                       }
                     `}
                     aria-current={isActivePage(item.href) ? 'page' : undefined}
@@ -151,7 +151,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               {/* Dark mode toggle */}
               <button
                 onClick={toggleDarkMode}
-                className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-red/50"
+                className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-400 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-red/50 magnetic-btn gpu-accelerated"
                 aria-label={isDarkMode ? 'ライトモードに切り替え' : 'ダークモードに切り替え'}
               >
                 {isDarkMode ? (
@@ -169,7 +169,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               <div className="lg:hidden">
                 <button
                   onClick={toggleMobileMenu}
-                  className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-red/50"
+                  className="p-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-400 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-red/50 magnetic-btn gpu-accelerated"
                   aria-expanded={isOpen}
                   aria-label="メニューを開く"
                 >
@@ -194,24 +194,24 @@ export const Navigation: React.FC<NavigationProps> = ({
         {/* Mobile menu */}
         <div 
           className={`
-            lg:hidden absolute top-full left-0 right-0 transition-all duration-300 ease-in-out
+            lg:hidden absolute top-full left-0 right-0 transition-all duration-500 ease-in-out gpu-accelerated
             ${isOpen 
-              ? 'opacity-100 visible translate-y-0' 
-              : 'opacity-0 invisible -translate-y-4'
+              ? 'opacity-100 visible translate-y-0 scale-100' 
+              : 'opacity-0 invisible -translate-y-4 scale-95'
             }
           `}
         >
-          <div className="glass-effect-dark border-t border-white/10 shadow-xl">
+          <div className="backdrop-blur-premium-dark border-t border-white/10 shadow-2xl">
             <div className="px-4 py-6 space-y-3">
               {items.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`
-                    block px-4 py-3 rounded-xl text-base font-medium font-japanese transition-all duration-300 ease-in-out
+                    block px-4 py-3 rounded-xl text-base font-medium font-japanese transition-all duration-400 ease-in-out gpu-accelerated
                     ${isActivePage(item.href)
-                      ? 'bg-brand-red text-white shadow-lg'
-                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      ? 'magnetic-btn text-white shadow-lg'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10 hover-3d'
                     }
                     animate-slide-in-left
                   `}
@@ -226,7 +226,7 @@ export const Navigation: React.FC<NavigationProps> = ({
               <div className="pt-4 border-t border-white/10">
                 <Link
                   href="/contact"
-                  className="block w-full btn-primary text-center font-japanese animate-fade-in-delay"
+                  className="block w-full magnetic-btn text-center font-japanese animate-fade-in-delay text-white px-6 py-3 rounded-xl"
                 >
                   お問い合わせ
                 </Link>

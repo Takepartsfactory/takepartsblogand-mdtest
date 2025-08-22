@@ -5,6 +5,7 @@ import MDXComponents from '@/components/MDXComponents';
 import { BentoGrid, BentoBox } from '@/components';
 import { GlowButton } from '@/components';
 import { OrganicBlob } from '@/components';
+import { VideoBackground, ScrollAnimations, ParallaxElement, ProductShowcase } from '@/components';
 import Link from 'next/link';
 
 // Generate metadata for the home page
@@ -50,91 +51,102 @@ export default async function Home() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-hero-gradient bg-300% animate-gradient-shift" />
-          
-          {/* Organic blob decorations */}
-          <OrganicBlob 
-            variant="primary" 
-            animation="blob" 
-            size="large"
-            className="absolute top-20 left-10 opacity-20"
-          />
-          <OrganicBlob 
-            variant="secondary" 
-            animation="float" 
-            size="medium"
-            className="absolute bottom-32 right-16 opacity-30"
-          />
-          <OrganicBlob 
-            variant="accent" 
-            animation="pulse" 
-            size="small"
-            className="absolute top-1/2 right-1/4 opacity-25"
-          />
-
-          {/* Hero content */}
-          <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-            <h1 className="text-display font-bold text-white mb-8 animate-fade-up text-shadow-lg font-japanese">
-              NC旋盤加工の限界を超える
-            </h1>
+          {/* Video Background with Fallback */}
+          <VideoBackground
+            fallbackImage="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            overlayOpacity={0.5}
+            className="absolute inset-0"
+          >
+            {/* Organic blob decorations with parallax */}
+            <ParallaxElement speed="slow" className="absolute inset-0">
+              <OrganicBlob 
+                variant="primary" 
+                animation="blob" 
+                size="large"
+                className="absolute top-20 left-10 opacity-20"
+              />
+            </ParallaxElement>
             
-            <p className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay font-japanese">
-              精密技術と革新的なアプローチで、お客様の製造ニーズを実現します
-            </p>
+            <ParallaxElement speed="medium" className="absolute inset-0">
+              <OrganicBlob 
+                variant="secondary" 
+                animation="float" 
+                size="medium"
+                className="absolute bottom-32 right-16 opacity-30"
+              />
+            </ParallaxElement>
+            
+            <ParallaxElement speed="fast" className="absolute inset-0">
+              <OrganicBlob 
+                variant="accent" 
+                animation="pulse" 
+                size="small"
+                className="absolute top-1/2 right-1/4 opacity-25"
+              />
+            </ParallaxElement>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-scale-in">
-              <GlowButton size="large" href="/contact" className="font-japanese">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                無料お見積り
-              </GlowButton>
+            {/* Hero content with enhanced animations */}
+            <ScrollAnimations animation="stagger" className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+              <h1 className="text-fluid-3xl font-bold text-white mb-8 text-shadow-lg font-japanese">
+                NC旋盤加工の限界を超える
+              </h1>
               
-              <GlowButton size="large" variant="secondary" href="/about" className="font-japanese">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                会社概要
-              </GlowButton>
-            </div>
+              <p className="text-fluid-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-japanese">
+                精密技術と革新的なアプローチで、お客様の製造ニーズを実現します
+              </p>
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-subtle">
-              <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-white rounded-full mt-2 animate-float" />
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <GlowButton size="large" href="/contact" className="magnetic-btn font-japanese">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  無料お見積り
+                </GlowButton>
+                
+                <GlowButton size="large" variant="secondary" href="/about" className="magnetic-btn font-japanese">
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  会社概要
+                </GlowButton>
               </div>
-            </div>
-          </div>
 
-          {/* Parallax decorative elements */}
-          <div className="absolute inset-0 parallax-element" style={{ transform: 'translateY(var(--scroll-y, 0) * 0.5px)' }}>
-            <div className="absolute top-1/4 left-1/8 w-2 h-2 bg-white/20 rounded-full animate-pulse" />
-            <div className="absolute top-3/4 right-1/8 w-1 h-1 bg-white/30 rounded-full animate-pulse delay-300" />
-            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse delay-700" />
-          </div>
+              {/* Enhanced scroll indicator */}
+              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <div className="scroll-indicator" />
+              </div>
+            </ScrollAnimations>
+
+            {/* Enhanced parallax decorative elements */}
+            <ParallaxElement speed="slow" className="absolute inset-0">
+              <div className="absolute top-1/4 left-1/8 w-2 h-2 bg-white/20 rounded-full animate-pulse" />
+              <div className="absolute top-3/4 right-1/8 w-1 h-1 bg-white/30 rounded-full animate-pulse delay-300" />
+              <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse delay-700" />
+            </ParallaxElement>
+          </VideoBackground>
         </section>
 
         {/* Company Strengths - Bento Grid */}
         <section className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 scroll-animate">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
+            <ScrollAnimations animation="slide-up" className="text-center mb-16">
+              <h2 className="text-fluid-2xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
                 私たちの強み
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
+              <p className="text-fluid-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
                 長年の経験と最新技術で、お客様のニーズにお応えします
               </p>
-            </div>
+            </ScrollAnimations>
 
-            <BentoGrid className="scroll-animate" gap={6}>
+            <ScrollAnimations animation="stagger">
+              <BentoGrid gap={6}>
               <BentoBox
                 size="large"
                 title="難削材加工"
                 description="ステンレス鋼、チタン、インコネルなど、加工困難な材料も高精度で対応"
                 glowEffect
                 animation="glow"
-                className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
+                className="bento-hover hover-3d bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
                 blob={{ show: true, variant: 'primary', animation: 'blob', size: 'medium' }}
               >
                 <div className="mt-4">
@@ -151,7 +163,7 @@ export default async function Home() {
                 size="medium"
                 title="短納期対応"
                 description="お急ぎの案件も最短3日で対応可能"
-                className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
+                className="bento-hover hover-3d bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
               >
                 <div className="mt-4">
                   <div className="text-2xl font-bold text-green-600 dark:text-green-400 font-japanese">
@@ -164,7 +176,7 @@ export default async function Home() {
                 size="medium"
                 title="品質保証"
                 description="ISO 9001:2015認証による徹底した品質管理"
-                className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20"
+                className="bento-hover hover-3d-reverse bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20"
               >
                 <div className="mt-4">
                   <div className="flex space-x-2">
@@ -182,7 +194,7 @@ export default async function Home() {
                 size="wide"
                 title="小ロット対応"
                 description="プロトタイプから大量生産まで、柔軟な生産体制でお客様をサポート"
-                className="bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-900/20 dark:to-red-800/20"
+                className="bento-hover hover-3d bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-900/20 dark:to-red-800/20"
                 blob={{ show: true, variant: 'accent', animation: 'float', size: 'large' }}
               >
                 <div className="mt-4">
@@ -207,7 +219,7 @@ export default async function Home() {
                 size="medium"
                 title="24時間見積り"
                 description="迅速な対応でお客様の時間を大切にします"
-                className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20"
+                className="bento-hover hover-3d-reverse bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20"
               >
                 <div className="mt-4">
                   <div className="flex items-center text-sm text-teal-600 dark:text-teal-400 font-japanese">
@@ -223,40 +235,44 @@ export default async function Home() {
                 size="small"
                 title="技術サポート"
                 description="設計段階からのアドバイス"
-                className="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20"
+                className="bento-hover hover-3d bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20"
               />
             </BentoGrid>
+            </ScrollAnimations>
           </div>
         </section>
+
+        {/* Product Showcase with Frame Animation */}
+        <ProductShowcase />
 
         {/* Recent Blog Posts */}
         {latestPosts.length > 0 && (
           <section className="py-24 bg-white dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16 scroll-animate">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
+              <ScrollAnimations animation="slide-up" className="text-center mb-16">
+                <h2 className="text-fluid-2xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
                   最新の技術情報
                 </h2>
-                <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
+                <p className="text-fluid-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
                   製造技術の最新トレンドと実践的なノウハウをお届けします
                 </p>
-              </div>
+              </ScrollAnimations>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate">
+              <ScrollAnimations animation="stagger">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {latestPosts.map((post, index) => (
                   <article 
                     key={post.slug} 
-                    className="card-modern hover:glow-red group"
-                    style={{ animationDelay: `${index * 0.2}s` }}
+                    className="card-modern hover-3d zoom-on-hover group gpu-accelerated"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       <div className="p-6">
                         {post.frontmatter.thumbnail && (
-                          <div className="mb-4 overflow-hidden rounded-lg">
+                          <div className="mb-4 zoom-on-hover">
                             <img 
                               src={post.frontmatter.thumbnail} 
                               alt={post.frontmatter.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-48 object-cover rounded-lg"
                             />
                           </div>
                         )}
@@ -297,53 +313,56 @@ export default async function Home() {
                     </Link>
                   </article>
                 ))}
-              </div>
+                </div>
+              </ScrollAnimations>
 
-              <div className="text-center mt-12 scroll-animate">
-                <GlowButton variant="secondary" href="/blog" size="large" className="font-japanese">
+              <ScrollAnimations animation="scale-in" delay={300} className="text-center mt-12">
+                <GlowButton variant="secondary" href="/blog" size="large" className="magnetic-btn font-japanese">
                   技術情報をもっと見る
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </GlowButton>
-              </div>
+              </ScrollAnimations>
             </div>
           </section>
         )}
 
         {/* CTA Section */}
         <section className="py-24 bg-gradient-to-r from-brand-red to-red-600 relative overflow-hidden">
-          <OrganicBlob 
-            variant="primary" 
-            animation="blob" 
-            size="large"
-            className="absolute top-0 right-0 opacity-20"
-          />
+          <ParallaxElement speed="medium" className="absolute inset-0">
+            <OrganicBlob 
+              variant="primary" 
+              animation="blob" 
+              size="large"
+              className="absolute top-0 right-0 opacity-20"
+            />
+          </ParallaxElement>
           
-          <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10 scroll-animate">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-japanese">
+          <ScrollAnimations animation="slide-up" className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 className="text-fluid-2xl font-bold text-white mb-6 font-japanese">
               お客様のニーズを形に
             </h2>
-            <p className="text-xl text-red-100 mb-8 font-japanese">
+            <p className="text-fluid-lg text-red-100 mb-8 font-japanese">
               図面をお送りいただければ、24時間以内にお見積りをご提示いたします
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <GlowButton size="large" variant="secondary" href="/contact" className="font-japanese">
+              <GlowButton size="large" variant="secondary" href="/contact" className="magnetic-btn font-japanese">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 無料お見積り依頼
               </GlowButton>
               
-              <GlowButton size="large" variant="secondary" href={`tel:${siteConfig.contact?.phone || '+81-3-1234-5678'}`} className="font-japanese">
+              <GlowButton size="large" variant="secondary" href={`tel:${siteConfig.contact?.phone || '+81-3-1234-5678'}`} className="magnetic-btn font-japanese">
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 今すぐお電話
               </GlowButton>
             </div>
-          </div>
+          </ScrollAnimations>
         </section>
 
         {/* MDX Content */}
