@@ -14,7 +14,7 @@ export async function generateMetadata() {
     const page = await getPageContent('home');
     
     return {
-      title: page?.frontmatter.title || 'NC旋盤加工の新たな可能性 | Take Parts Factory',
+      title: page?.frontmatter.title || 'NC旋盤加工の限界を超える | Take Parts Factory',
       description: page?.frontmatter.description || siteConfig.siteDescription,
       openGraph: {
         title: page?.frontmatter.title || 'NC旋盤加工の新たな可能性 | Take Parts Factory',
