@@ -5,6 +5,9 @@
 name = "take-parts-factory"
 compatibility_date = "2024-08-21"
 
+# Pages build output directory
+pages_build_output_dir = "out"
+
 # Pages configuration
 [env.production]
 # Environment variables for production

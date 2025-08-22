@@ -1,8 +1,10 @@
 # Cloudflare Pages Redirects Configuration
 # https://developers.cloudflare.com/pages/platform/redirects/
 
-# Force HTTPS
-http://take-parts-factory.pages.dev/* https://take-parts-factory.pages.dev/:splat 301!
+# Specific redirects first (performance optimization)
+/404 /404/ 200
+/feed /rss.xml/ 200
+/rss /rss.xml/ 200
 
 # Legacy URL redirects (if migrating from old site)
 /old-services /services/ 301
@@ -16,12 +18,8 @@ http://take-parts-factory.pages.dev/* https://take-parts-factory.pages.dev/:spla
 # Japanese language redirects
 /ja/* /:splat 301
 
-# Trailing slash consistency
+# Force HTTPS (fix status code)
+http://take-parts-factory.pages.dev/* https://take-parts-factory.pages.dev/:splat 301
+
+# Trailing slash consistency (last to avoid conflicts)
 /* /:splat/ 301
-
-# 404 fallback
-/404 /404/ 200
-
-# RSS feed
-/feed /rss.xml/ 200
-/rss /rss.xml/ 200

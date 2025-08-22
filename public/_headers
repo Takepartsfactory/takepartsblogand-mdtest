@@ -14,77 +14,77 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # JavaScript and CSS files
-*.js
+/*.js
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: application/javascript; charset=utf-8
 
-*.css
+/*.css
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: text/css; charset=utf-8
 
 # Font files with long cache
-*.woff2
+/*.woff2
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: font/woff2
 
-*.woff
+/*.woff
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: font/woff
 
-*.ttf
+/*.ttf
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: font/ttf
 
-*.otf
+/*.otf
   Cache-Control: public, max-age=31536000, immutable
   Content-Type: font/otf
 
 # Images with medium cache
-*.jpg
+/*.jpg
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/jpeg
 
-*.jpeg
+/*.jpeg
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/jpeg
 
-*.png
+/*.png
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/png
 
-*.webp
+/*.webp
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/webp
 
-*.avif
+/*.avif
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/avif
 
-*.svg
+/*.svg
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/svg+xml
 
-*.ico
+/*.ico
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
   Content-Type: image/x-icon
 
 # HTML files with short cache
-*.html
+/*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: text/html; charset=utf-8
 
 # JSON files
-*.json
+/*.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: application/json; charset=utf-8
 
 # XML files (sitemap, RSS)
-*.xml
+/*.xml
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: application/xml; charset=utf-8
 
 # Text files
-*.txt
+/*.txt
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: text/plain; charset=utf-8
 
