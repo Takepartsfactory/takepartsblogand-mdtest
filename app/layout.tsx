@@ -151,7 +151,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${notoSansJP.variable} ${notoSansJP.className} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}>
+      <body className={`${notoSansJP.variable} ${notoSansJP.className} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden`}>
         {/* Skip to main content for accessibility */}
         <a 
           href="#main-content" 

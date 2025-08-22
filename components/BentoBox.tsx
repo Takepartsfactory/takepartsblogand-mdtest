@@ -18,6 +18,7 @@ interface BentoBoxProps {
   onClick?: () => void
   className?: string
   gradient?: boolean
+  solanaTheme?: boolean
   blob?: {
     show: boolean
     variant?: 'primary' | 'secondary' | 'accent'
@@ -51,7 +52,8 @@ export const BentoBox: React.FC<BentoBoxProps> = ({
   className = '',
   gradient = true,
   blob,
-  darkMode = false
+  darkMode = false,
+  solanaTheme = false
 }) => {
   // Size variant classes
   const getSizeClasses = () => {
@@ -94,8 +96,10 @@ export const BentoBox: React.FC<BentoBoxProps> = ({
     'overflow-hidden',
     'rounded-2xl',
     'border',
+    solanaTheme ? 'border-brand-dark-border bg-brand-dark-surface' : 
     darkMode ? 'border-gray-800 bg-gray-900' : 'border-gray-200 bg-white',
     'shadow-lg',
+    solanaTheme ? 'shadow-brand-purple/10' : 
     darkMode ? 'shadow-gray-900/25' : 'shadow-gray-200/25',
     'transition-all',
     'duration-300',
@@ -103,21 +107,26 @@ export const BentoBox: React.FC<BentoBoxProps> = ({
     // Hover effects
     'hover:scale-[1.02]',
     'hover:shadow-xl',
+    solanaTheme ? 'hover:shadow-brand-purple/20' : 
     darkMode ? 'hover:shadow-gray-900/40' : 'hover:shadow-gray-300/40',
-    'hover:border-brand-red/20',
+    solanaTheme ? 'hover:border-brand-purple/30' : 'hover:border-brand-purple/20',
     // Interactive styles
     (href || onClick) && 'cursor-pointer',
     // Glow effect
-    glowEffect && 'ring-2 ring-brand-red/20 shadow-[0_0_20px_rgba(220,38,38,0.3)]',
+    glowEffect && (solanaTheme ? 
+      'ring-2 ring-brand-purple/30 shadow-[0_0_20px_rgba(153,69,255,0.3)]' : 
+      'ring-2 ring-brand-purple/20 shadow-[0_0_20px_rgba(153,69,255,0.3)]'),
     getAnimationClasses(),
     className
   ].filter(Boolean).join(' ')
 
   // Gradient overlay classes
   const gradientClasses = gradient ? (
-    darkMode 
-      ? 'bg-gradient-to-br from-transparent via-transparent to-gray-800/30'
-      : 'bg-gradient-to-br from-transparent via-transparent to-black/10'
+    solanaTheme 
+      ? 'bg-gradient-to-br from-transparent via-brand-purple/5 to-brand-blue/10'
+      : darkMode 
+        ? 'bg-gradient-to-br from-transparent via-transparent to-gray-800/30'
+        : 'bg-gradient-to-br from-transparent via-transparent to-black/10'
   ) : ''
 
   // Content wrapper
@@ -150,6 +159,7 @@ export const BentoBox: React.FC<BentoBoxProps> = ({
       <div className="relative z-10 h-full p-6 flex flex-col justify-end">
         {title && (
           <h3 className={`font-bold text-lg mb-2 font-sans ${
+            solanaTheme ? 'text-white' :
             darkMode ? 'text-white' : 'text-gray-900'
           } ${image ? 'text-white' : ''}`}>
             {title}
@@ -158,6 +168,7 @@ export const BentoBox: React.FC<BentoBoxProps> = ({
         
         {description && (
           <p className={`text-sm opacity-80 font-sans ${
+            solanaTheme ? 'text-gray-300' :
             darkMode ? 'text-gray-300' : 'text-gray-600'
           } ${image ? 'text-white' : ''}`}>
             {description}

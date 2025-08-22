@@ -4,7 +4,7 @@ import React, { ReactNode } from 'react'
 import Link from 'next/link'
 
 export type GlowButtonSize = 'small' | 'medium' | 'large'
-export type GlowButtonVariant = 'primary' | 'secondary'
+export type GlowButtonVariant = 'primary' | 'secondary' | 'solana'
 
 interface GlowButtonProps {
   children: ReactNode
@@ -62,18 +62,42 @@ export const GlowButton: React.FC<GlowButtonProps> = ({
       return {
         base: [
           'bg-gradient-to-r',
-          'from-brand-red',
-          'to-red-600',
+          'from-brand-purple',
+          'to-brand-blue',
           'text-white',
           'border-2',
           'border-transparent',
-          'shadow-[0_0_20px_rgba(220,38,38,0.3)]'
+          'shadow-[0_0_20px_rgba(153,69,255,0.3)]'
         ].join(' '),
         hover: [
-          'hover:shadow-[0_0_30px_rgba(220,38,38,0.5)]',
-          'hover:from-red-500',
-          'hover:to-red-700',
+          'hover:shadow-[0_0_30px_rgba(153,69,255,0.5)]',
+          'hover:from-brand-purple-dark',
+          'hover:to-brand-blue-dark',
           'hover:scale-105'
+        ].join(' '),
+        active: 'active:scale-95',
+        disabled: 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
+      }
+    } else if (variant === 'solana') {
+      // Solana special variant with triple gradient
+      return {
+        base: [
+          'bg-gradient-to-r',
+          'from-brand-purple',
+          'via-brand-blue',
+          'to-brand-green',
+          'text-white',
+          'border-2',
+          'border-transparent',
+          'shadow-[0_0_25px_rgba(153,69,255,0.3)]',
+          'relative',
+          'overflow-hidden'
+        ].join(' '),
+        hover: [
+          'hover:shadow-[0_0_40px_rgba(153,69,255,0.4)]',
+          'hover:shadow-[0_0_60px_rgba(25,212,238,0.2)]',
+          'hover:scale-105',
+          'hover:brightness-110'
         ].join(' '),
         active: 'active:scale-95',
         disabled: 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
@@ -83,15 +107,15 @@ export const GlowButton: React.FC<GlowButtonProps> = ({
       return {
         base: [
           darkMode ? 'bg-transparent' : 'bg-white',
-          'text-brand-red',
+          'text-brand-purple',
           'border-2',
-          'border-brand-red',
-          darkMode ? 'shadow-[0_0_15px_rgba(220,38,38,0.2)]' : 'shadow-lg'
+          'border-brand-purple',
+          darkMode ? 'shadow-[0_0_15px_rgba(153,69,255,0.2)]' : 'shadow-lg'
         ].join(' '),
         hover: [
-          'hover:bg-brand-red',
+          'hover:bg-brand-purple',
           'hover:text-white',
-          'hover:shadow-[0_0_25px_rgba(220,38,38,0.4)]',
+          'hover:shadow-[0_0_25px_rgba(153,69,255,0.4)]',
           'hover:scale-105'
         ].join(' '),
         active: 'active:scale-95',
@@ -115,7 +139,7 @@ export const GlowButton: React.FC<GlowButtonProps> = ({
     'ease-in-out',
     'focus:outline-none',
     'focus:ring-4',
-    'focus:ring-brand-red/20',
+    'focus:ring-brand-purple/20',
     getSizeClasses(),
     variantClasses.base,
     variantClasses.hover,

@@ -49,91 +49,95 @@ export default async function Home() {
 
     return (
       <div className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Hero Section - Full-screen Solana-inspired */}
+        <section className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-brand-dark-bg via-brand-dark-surface to-brand-black">
           {/* Video Background with Fallback */}
           <VideoBackground
             fallbackImage="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-            overlayOpacity={0.5}
+            overlayOpacity={0.6}
             className="absolute inset-0"
           >
-            {/* Organic blob decorations with parallax */}
-            <ParallaxElement speed="slow" className="absolute inset-0">
+            {/* Full-width organic blob decorations with parallax */}
+            <ParallaxElement speed="slow" className="absolute inset-0 w-full h-full">
               <OrganicBlob 
                 variant="primary" 
                 animation="blob" 
                 size="large"
-                className="absolute top-20 left-10 opacity-20"
+                className="absolute top-10 -left-20 opacity-15 scale-150"
               />
             </ParallaxElement>
             
-            <ParallaxElement speed="medium" className="absolute inset-0">
+            <ParallaxElement speed="medium" className="absolute inset-0 w-full h-full">
               <OrganicBlob 
                 variant="secondary" 
                 animation="float" 
-                size="medium"
-                className="absolute bottom-32 right-16 opacity-30"
+                size="large"
+                className="absolute bottom-10 -right-20 opacity-20 scale-125"
               />
             </ParallaxElement>
             
-            <ParallaxElement speed="fast" className="absolute inset-0">
+            <ParallaxElement speed="fast" className="absolute inset-0 w-full h-full">
               <OrganicBlob 
                 variant="accent" 
                 animation="pulse" 
-                size="small"
-                className="absolute top-1/2 right-1/4 opacity-25"
+                size="medium"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-10 scale-200"
               />
             </ParallaxElement>
 
-            {/* Hero content with enhanced animations */}
-            <ScrollAnimations animation="stagger" className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-              <h1 className="text-fluid-3xl font-bold text-white mb-8 text-shadow-lg font-japanese">
-                NC旋盤加工の限界を超える
-              </h1>
-              
-              <p className="text-fluid-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed font-japanese">
-                精密技術と革新的なアプローチで、お客様の製造ニーズを実現します
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <GlowButton size="large" href="/contact" className="magnetic-btn font-japanese">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  無料お見積り
-                </GlowButton>
+            {/* Full-screen hero content - centered and impactful */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <ScrollAnimations animation="stagger" className="text-center w-full px-6 sm:px-12 lg:px-16">
+                <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold text-white mb-8 text-shadow-lg font-japanese leading-tight">
+                  NC旋盤加工の限界を超える
+                </h1>
                 
-                <GlowButton size="large" variant="secondary" href="/about" className="magnetic-btn font-japanese">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  会社概要
-                </GlowButton>
-              </div>
+                <p className="text-xl sm:text-2xl lg:text-3xl text-gray-200 mb-16 leading-relaxed font-japanese max-w-4xl mx-auto">
+                  精密技術と革新的なアプローチで、お客様の製造ニーズを実現します
+                </p>
 
-              {/* Enhanced scroll indicator */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                <div className="scroll-indicator" />
-              </div>
-            </ScrollAnimations>
+                <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+                  <GlowButton size="large" href="/contact" className="magnetic-btn font-japanese text-lg px-8 py-4">
+                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    無料お見積り
+                  </GlowButton>
+                  
+                  <GlowButton size="large" variant="secondary" href="/about" className="magnetic-btn font-japanese text-lg px-8 py-4">
+                    <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    会社概要
+                  </GlowButton>
+                </div>
+              </ScrollAnimations>
+            </div>
 
-            {/* Enhanced parallax decorative elements */}
-            <ParallaxElement speed="slow" className="absolute inset-0">
-              <div className="absolute top-1/4 left-1/8 w-2 h-2 bg-white/20 rounded-full animate-pulse" />
-              <div className="absolute top-3/4 right-1/8 w-1 h-1 bg-white/30 rounded-full animate-pulse delay-300" />
-              <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse delay-700" />
+            {/* Enhanced scroll indicator - positioned at bottom center */}
+            <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+              <div className="scroll-indicator" />
+            </div>
+
+            {/* Full-screen parallax decorative particles */}
+            <ParallaxElement speed="slow" className="absolute inset-0 w-full h-full pointer-events-none">
+              <div className="absolute top-1/4 left-1/12 w-3 h-3 bg-white/15 rounded-full animate-pulse" />
+              <div className="absolute top-3/4 right-1/12 w-2 h-2 bg-white/20 rounded-full animate-pulse delay-300" />
+              <div className="absolute bottom-1/3 left-1/4 w-2.5 h-2.5 bg-white/10 rounded-full animate-pulse delay-700" />
+              <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-white/25 rounded-full animate-pulse delay-1000" />
+              <div className="absolute bottom-1/4 right-1/6 w-1 h-1 bg-white/30 rounded-full animate-pulse delay-500" />
             </ParallaxElement>
           </VideoBackground>
         </section>
 
         {/* Company Strengths - Bento Grid */}
-        <section className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden">
+        <section className="py-24 bg-brand-dark-bg relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollAnimations animation="slide-up" className="text-center mb-16">
-              <h2 className="text-fluid-2xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
+              <h2 className="text-fluid-2xl font-bold text-white mb-6 font-japanese solana-text-gradient">
                 私たちの強み
               </h2>
-              <p className="text-fluid-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
+              <p className="text-fluid-lg text-gray-300 max-w-3xl mx-auto font-japanese">
                 長年の経験と最新技術で、お客様のニーズにお応えします
               </p>
             </ScrollAnimations>
@@ -146,11 +150,12 @@ export default async function Home() {
                 description="ステンレス鋼、チタン、インコネルなど、加工困難な材料も高精度で対応"
                 glowEffect
                 animation="glow"
-                className="bento-hover hover-3d bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
+                solanaTheme
+                className="bento-hover hover-3d solana-card"
                 blob={{ show: true, variant: 'primary', animation: 'blob', size: 'medium' }}
               >
                 <div className="mt-4">
-                  <div className="flex items-center text-sm text-blue-600 dark:text-blue-400 font-japanese">
+                  <div className="flex items-center text-sm text-brand-blue font-japanese">
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -163,10 +168,11 @@ export default async function Home() {
                 size="medium"
                 title="短納期対応"
                 description="お急ぎの案件も最短3日で対応可能"
-                className="bento-hover hover-3d bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
+                solanaTheme
+                className="bento-hover hover-3d solana-card"
               >
                 <div className="mt-4">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400 font-japanese">
+                  <div className="text-2xl font-bold text-brand-green font-japanese">
                     最短3日
                   </div>
                 </div>
@@ -176,14 +182,15 @@ export default async function Home() {
                 size="medium"
                 title="品質保証"
                 description="ISO 9001:2015認証による徹底した品質管理"
-                className="bento-hover hover-3d-reverse bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20"
+                solanaTheme
+                className="bento-hover hover-3d-reverse solana-card"
               >
                 <div className="mt-4">
                   <div className="flex space-x-2">
-                    <span className="px-2 py-1 bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-200 text-xs rounded-full font-japanese">
+                    <span className="px-2 py-1 bg-brand-purple/20 text-brand-purple text-xs rounded-full font-japanese">
                       ISO 9001
                     </span>
-                    <span className="px-2 py-1 bg-purple-100 dark:bg-purple-800 text-purple-800 dark:text-purple-200 text-xs rounded-full font-japanese">
+                    <span className="px-2 py-1 bg-brand-blue/20 text-brand-blue text-xs rounded-full font-japanese">
                       ISO 14001
                     </span>
                   </div>
@@ -194,22 +201,23 @@ export default async function Home() {
                 size="wide"
                 title="小ロット対応"
                 description="プロトタイプから大量生産まで、柔軟な生産体制でお客様をサポート"
-                className="bento-hover hover-3d bg-gradient-to-br from-orange-50 to-red-100 dark:from-orange-900/20 dark:to-red-800/20"
+                solanaTheme
+                className="bento-hover hover-3d solana-card"
                 blob={{ show: true, variant: 'accent', animation: 'float', size: 'large' }}
               >
                 <div className="mt-4">
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-lg font-bold text-orange-600 dark:text-orange-400">1個〜</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400 font-japanese">プロトタイプ</div>
+                      <div className="text-lg font-bold text-brand-purple">1個〜</div>
+                      <div className="text-xs text-gray-400 font-japanese">プロトタイプ</div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-orange-600 dark:text-orange-400">100個〜</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400 font-japanese">小ロット</div>
+                      <div className="text-lg font-bold text-brand-blue">100個〜</div>
+                      <div className="text-xs text-gray-400 font-japanese">小ロット</div>
                     </div>
                     <div>
-                      <div className="text-lg font-bold text-orange-600 dark:text-orange-400">10,000個〜</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400 font-japanese">大量生産</div>
+                      <div className="text-lg font-bold text-brand-green">10,000個〜</div>
+                      <div className="text-xs text-gray-400 font-japanese">大量生産</div>
                     </div>
                   </div>
                 </div>
@@ -219,10 +227,11 @@ export default async function Home() {
                 size="medium"
                 title="24時間見積り"
                 description="迅速な対応でお客様の時間を大切にします"
-                className="bento-hover hover-3d-reverse bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20"
+                solanaTheme
+                className="bento-hover hover-3d-reverse solana-card"
               >
                 <div className="mt-4">
-                  <div className="flex items-center text-sm text-teal-600 dark:text-teal-400 font-japanese">
+                  <div className="flex items-center text-sm text-brand-blue font-japanese">
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -235,7 +244,8 @@ export default async function Home() {
                 size="small"
                 title="技術サポート"
                 description="設計段階からのアドバイス"
-                className="bento-hover hover-3d bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20"
+                solanaTheme
+                className="bento-hover hover-3d solana-card"
               />
             </BentoGrid>
             </ScrollAnimations>
@@ -247,13 +257,13 @@ export default async function Home() {
 
         {/* Recent Blog Posts */}
         {latestPosts.length > 0 && (
-          <section className="py-24 bg-white dark:bg-gray-900">
+          <section className="py-24 bg-brand-dark-surface">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <ScrollAnimations animation="slide-up" className="text-center mb-16">
-                <h2 className="text-fluid-2xl font-bold text-gray-900 dark:text-white mb-6 font-japanese">
+                <h2 className="text-fluid-2xl font-bold text-white mb-6 font-japanese solana-text-gradient">
                   最新の技術情報
                 </h2>
-                <p className="text-fluid-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-japanese">
+                <p className="text-fluid-lg text-gray-300 max-w-3xl mx-auto font-japanese">
                   製造技術の最新トレンドと実践的なノウハウをお届けします
                 </p>
               </ScrollAnimations>
@@ -263,7 +273,7 @@ export default async function Home() {
                 {latestPosts.map((post, index) => (
                   <article 
                     key={post.slug} 
-                    className="card-modern hover-3d zoom-on-hover group gpu-accelerated"
+                    className="solana-card hover-3d zoom-on-hover group gpu-accelerated"
                   >
                     <Link href={`/blog/${post.slug}`}>
                       <div className="p-6">
@@ -278,21 +288,21 @@ export default async function Home() {
                         )}
                         
                         <div className="mb-3">
-                          <time className="text-sm text-gray-500 dark:text-gray-400 font-japanese">
+                          <time className="text-sm text-gray-400 font-japanese">
                             {new Date(post.frontmatter.date).toLocaleDateString('ja-JP')}
                           </time>
-                          <span className="mx-2 text-gray-300">•</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400 font-japanese">
+                          <span className="mx-2 text-gray-500">•</span>
+                          <span className="text-sm text-gray-400 font-japanese">
                             {post.readingTime}分で読める
                           </span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-brand-red transition-colors duration-300 font-japanese">
+                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-brand-purple transition-colors duration-300 font-japanese">
                           {post.frontmatter.title}
                         </h3>
 
                         {post.frontmatter.excerpt && (
-                          <p className="text-gray-600 dark:text-gray-300 line-clamp-3 font-japanese">
+                          <p className="text-gray-300 line-clamp-3 font-japanese">
                             {post.frontmatter.excerpt}
                           </p>
                         )}
@@ -302,7 +312,7 @@ export default async function Home() {
                             {post.frontmatter.tags.slice(0, 3).map((tag) => (
                               <span 
                                 key={tag}
-                                className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs rounded-full font-japanese"
+                                className="px-2 py-1 bg-brand-purple/20 text-brand-purple text-xs rounded-full font-japanese"
                               >
                                 {tag}
                               </span>
@@ -329,7 +339,7 @@ export default async function Home() {
         )}
 
         {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-r from-brand-red to-red-600 relative overflow-hidden">
+        <section className="py-24 bg-gradient-to-r from-brand-purple to-brand-blue relative overflow-hidden">
           <ParallaxElement speed="medium" className="absolute inset-0">
             <OrganicBlob 
               variant="primary" 
@@ -343,7 +353,7 @@ export default async function Home() {
             <h2 className="text-fluid-2xl font-bold text-white mb-6 font-japanese">
               お客様のニーズを形に
             </h2>
-            <p className="text-fluid-lg text-red-100 mb-8 font-japanese">
+            <p className="text-fluid-lg text-blue-100 mb-8 font-japanese">
               図面をお送りいただければ、24時間以内にお見積りをご提示いたします
             </p>
             
@@ -367,9 +377,9 @@ export default async function Home() {
 
         {/* MDX Content */}
         {page && (
-          <section className="py-24 bg-gray-50 dark:bg-gray-800">
+          <section className="py-24 bg-brand-dark-bg">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="prose prose-lg max-w-none dark:prose-invert font-japanese scroll-animate">
+              <div className="prose prose-lg max-w-none prose-invert font-japanese scroll-animate">
                 <MDXRemote 
                   source={page.content} 
                   components={MDXComponents}
@@ -383,18 +393,18 @@ export default async function Home() {
   } catch (error) {
     console.error('ホームページの表示でエラーが発生しました:', error);
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-brand-dark-bg">
         <div className="text-center max-w-md mx-auto px-4">
-          <div className="w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-16 h-16 bg-brand-purple/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-brand-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 font-japanese">
+          <h1 className="text-2xl font-bold text-white mb-4 font-japanese">
             エラーが発生しました
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 mb-6 font-japanese">
+          <p className="text-gray-300 mb-6 font-japanese">
             ホームページの読み込み中に問題が発生しました。しばらく時間をおいてから再度お試しください。
           </p>
           

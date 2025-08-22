@@ -44,9 +44,29 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          red: '#DC2626',
-          'red-glow': '#FF3333',
+          // Solana-inspired primary colors
+          purple: '#9945FF',
+          'purple-light': '#C084FC',
+          'purple-dark': '#7C3AED',
+          'purple-glow': '#A855F7',
+          
+          // Solana's blue gradient colors
+          blue: '#19D4EE',
+          'blue-light': '#00D4F7',
+          'blue-dark': '#0891B2',
+          'blue-glow': '#06B6D4',
+          
+          // Solana's green accent
+          green: '#14F195',
+          'green-light': '#34D399',
+          'green-dark': '#059669',
+          'green-glow': '#10B981',
+          
+          // Dark theme colors
           black: '#0A0A0B',
+          'dark-bg': '#0F0F10',
+          'dark-surface': '#1A1A1B',
+          'dark-border': '#2A2A2B',
           gray: '#FAFAFA',
         }
       },
@@ -77,8 +97,8 @@ const config: Config = {
       },
       keyframes: {
         glow: {
-          'from': { 'box-shadow': '0 0 20px #FF3333' },
-          'to': { 'box-shadow': '0 0 30px #FF3333, 0 0 40px #DC2626' }
+          'from': { 'box-shadow': '0 0 20px #9945FF' },
+          'to': { 'box-shadow': '0 0 30px #9945FF, 0 0 40px #7C3AED' }
         },
         blob: {
           '0%': { transform: 'translate(0px, 0px) scale(1)' },
@@ -115,8 +135,8 @@ const config: Config = {
           '50%': { 'background-position': '100% 50%' },
         },
         'pulse-glow': {
-          '0%, 100%': { 'box-shadow': '0 0 5px rgba(220, 38, 38, 0.4)' },
-          '50%': { 'box-shadow': '0 0 20px rgba(220, 38, 38, 0.8), 0 0 30px rgba(220, 38, 38, 0.4)' },
+          '0%, 100%': { 'box-shadow': '0 0 5px rgba(153, 69, 255, 0.4)' },
+          '50%': { 'box-shadow': '0 0 20px rgba(153, 69, 255, 0.8), 0 0 30px rgba(124, 58, 237, 0.4)' },
         },
         'bounce-subtle': {
           '0%, 100%': { transform: 'translateY(0)' },
@@ -133,8 +153,14 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, #DC2626 0%, #991B1B 50%, #0A0A0B 100%)',
-        'hero-gradient-dark': 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 50%, #000000 100%)',
+        // Solana-inspired gradient backgrounds
+        'hero-gradient': 'linear-gradient(135deg, #9945FF 0%, #19D4EE 50%, #0A0A0B 100%)',
+        'hero-gradient-dark': 'linear-gradient(135deg, #7C3AED 0%, #0891B2 50%, #000000 100%)',
+        'solana-gradient': 'linear-gradient(135deg, #9945FF 0%, #19D4EE 100%)',
+        'solana-gradient-reverse': 'linear-gradient(135deg, #19D4EE 0%, #9945FF 100%)',
+        'solana-dark': 'linear-gradient(135deg, #0F0F10 0%, #1A1A1B 100%)',
+        'purple-blue-gradient': 'linear-gradient(45deg, #9945FF 0%, #19D4EE 100%)',
+        'blue-green-gradient': 'linear-gradient(45deg, #19D4EE 0%, #14F195 100%)',
       },
       backgroundSize: {
         '300%': '300%',

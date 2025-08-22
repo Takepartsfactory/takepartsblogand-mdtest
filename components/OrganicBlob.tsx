@@ -39,13 +39,13 @@ export const OrganicBlob: React.FC<OrganicBlobProps> = ({
   const getVariantClasses = () => {
     switch (variant) {
       case 'primary':
-        return darkMode ? 'bg-brand-red' : 'bg-brand-red'
+        return darkMode ? 'bg-brand-purple' : 'bg-brand-purple'
       case 'secondary':
-        return darkMode ? 'bg-gray-600' : 'bg-gray-300'
+        return darkMode ? 'bg-brand-blue' : 'bg-brand-blue'
       case 'accent':
-        return darkMode ? 'bg-brand-red-glow' : 'bg-brand-red-glow'
+        return darkMode ? 'bg-brand-green' : 'bg-brand-green'
       default:
-        return 'bg-brand-red'
+        return 'bg-brand-purple'
     }
   }
 
@@ -124,13 +124,13 @@ export const OrganicShape: React.FC<OrganicBlobProps & { shape?: 'circle' | 'ova
   const getVariantClasses = () => {
     switch (variant) {
       case 'primary':
-        return darkMode ? 'fill-brand-red' : 'fill-brand-red'
+        return darkMode ? 'fill-brand-purple' : 'fill-brand-purple'
       case 'secondary':
-        return darkMode ? 'fill-gray-600' : 'fill-gray-300'
+        return darkMode ? 'fill-brand-blue' : 'fill-brand-blue'
       case 'accent':
-        return darkMode ? 'fill-brand-red-glow' : 'fill-brand-red-glow'
+        return darkMode ? 'fill-brand-green' : 'fill-brand-green'
       default:
-        return 'fill-brand-red'
+        return 'fill-brand-purple'
     }
   }
 
