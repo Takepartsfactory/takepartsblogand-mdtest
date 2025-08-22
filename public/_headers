@@ -1,0 +1,111 @@
+# Cloudflare Pages Headers Configuration
+# https://developers.cloudflare.com/pages/platform/headers/
+
+# Global security headers
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=()
+
+# Static assets with long cache
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript and CSS files
+*.js
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/javascript; charset=utf-8
+
+*.css
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: text/css; charset=utf-8
+
+# Font files with long cache
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff2
+
+*.woff
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/woff
+
+*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/ttf
+
+*.otf
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: font/otf
+
+# Images with medium cache
+*.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/jpeg
+
+*.jpeg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/jpeg
+
+*.png
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/png
+
+*.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/webp
+
+*.avif
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/avif
+
+*.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/svg+xml
+
+*.ico
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: image/x-icon
+
+# HTML files with short cache
+*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: text/html; charset=utf-8
+
+# JSON files
+*.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: application/json; charset=utf-8
+
+# XML files (sitemap, RSS)
+*.xml
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: application/xml; charset=utf-8
+
+# Text files
+*.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: text/plain; charset=utf-8
+
+# Manifest files
+/manifest.json
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+  Content-Type: application/manifest+json
+
+# Service worker
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Root files
+/
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# API routes (if any)
+/api/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# RSS feed
+/rss.xml/
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+  Content-Type: application/rss+xml; charset=utf-8

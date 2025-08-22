@@ -1,0 +1,47 @@
+# Cloudflare Pages Configuration
+# https://developers.cloudflare.com/pages/platform/build-configuration/
+
+# Project settings
+name = "take-parts-factory"
+compatibility_date = "2024-08-21"
+
+# Pages configuration
+[env.production]
+# Environment variables for production
+# Add any environment variables needed for production here
+
+[env.preview]
+# Environment variables for preview deployments
+# Add any environment variables needed for preview here
+
+# Build configuration (usually set in dashboard)
+# These settings are included for reference
+[build]
+# Build command: npm run build
+# Output directory: out
+# Root directory: /
+# Environment variables:
+#   NODE_VERSION = "20"
+#   NPM_FLAGS = "--omit=dev"
+
+# Functions (if using Cloudflare Functions)
+# [[ env.production.services ]]
+# binding = "MY_SERVICE"
+# service = "my-service"
+
+# KV namespaces (if using Cloudflare KV)
+# [[ env.production.kv_namespaces ]]
+# binding = "MY_KV_NAMESPACE"
+# id = "your-kv-namespace-id"
+
+# Environment variables for the build process
+# These can also be set in the Cloudflare Pages dashboard
+# [env.production.vars]
+# NEXT_PUBLIC_SITE_URL = "https://take-parts-factory.pages.dev"
+
+# [env.preview.vars]
+# NEXT_PUBLIC_SITE_URL = "https://preview.take-parts-factory.pages.dev"
+
+# Custom headers and redirects are handled via:
+# - public/_headers
+# - public/_redirects

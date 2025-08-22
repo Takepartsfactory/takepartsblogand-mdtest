@@ -1,0 +1,73 @@
+{
+  "siteName": "Take Parts Factory",
+  "siteDescription": "精密CNC旋盤加工による高品質部品製造 - 日本の製造技術でお客様のニーズにお応えします",
+  "language": "ja",
+  "author": "Take Parts Factory",
+  "url": "https://take-parts-factory.pages.dev",
+  "company": {
+    "name": "Take Parts Factory",
+    "nameJa": "テイクパーツファクトリー",
+    "establishedYear": "2015",
+    "employees": "50名",
+    "certification": ["ISO 9001:2015", "ISO 14001:2015"],
+    "specialties": [
+      "CNC旋盤加工",
+      "精密部品製造",
+      "金属加工",
+      "プロトタイプ製作",
+      "大量生産対応"
+    ]
+  },
+  "social": {
+    "twitter": "",
+    "facebook": "",
+    "linkedin": "",
+    "youtube": ""
+  },
+  "contact": {
+    "email": "info@take-parts-factory.com",
+    "phone": "+81-3-1234-5678",
+    "fax": "+81-3-1234-5679",
+    "address": "〒123-4567 東京都港区芝公園1-2-3 製造ビル5F",
+    "businessHours": "平日 9:00-18:00（土日祝日休み）"
+  },
+  "navigation": [
+    {
+      "title": "ホーム",
+      "href": "/"
+    },
+    {
+      "title": "サービス",
+      "href": "/services"
+    },
+    {
+      "title": "製品事例",
+      "href": "/products"
+    },
+    {
+      "title": "技術情報",
+      "href": "/blog"
+    },
+    {
+      "title": "会社概要",
+      "href": "/about"
+    },
+    {
+      "title": "お問い合わせ",
+      "href": "/contact"
+    }
+  ],
+  "seo": {
+    "keywords": [
+      "CNC旋盤",
+      "精密加工",
+      "部品製造",
+      "金属加工",
+      "製造業",
+      "日本製",
+      "高品質",
+      "プロトタイプ"
+    ],
+    "ogImage": "/images/og-image.jpg"
+  }
+}

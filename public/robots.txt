@@ -1,0 +1,28 @@
+# Robots.txt for Take Parts Factory
+# https://take-parts-factory.pages.dev
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://take-parts-factory.pages.dev/sitemap.xml
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /out/
+
+# Allow important pages
+Allow: /
+Allow: /about/
+Allow: /services/
+Allow: /blog/
+Allow: /contact/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Block specific bots if needed
+# User-agent: BadBot
+# Disallow: /

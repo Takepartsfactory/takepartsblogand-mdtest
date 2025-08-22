@@ -1,0 +1,27 @@
+# Cloudflare Pages Redirects Configuration
+# https://developers.cloudflare.com/pages/platform/redirects/
+
+# Force HTTPS
+http://take-parts-factory.pages.dev/* https://take-parts-factory.pages.dev/:splat 301!
+
+# Legacy URL redirects (if migrating from old site)
+/old-services /services/ 301
+/old-about /about/ 301
+/old-contact /contact/ 301
+
+# Blog redirects with Japanese paths
+/blog/cnc-lathe-guide /blog/cnc-lathe-precision-machining-guide/ 301
+/blog/steel-machining /blog/stainless-steel-machining-tips/ 301
+
+# Japanese language redirects
+/ja/* /:splat 301
+
+# Trailing slash consistency
+/* /:splat/ 301
+
+# 404 fallback
+/404 /404/ 200
+
+# RSS feed
+/feed /rss.xml/ 200
+/rss /rss.xml/ 200
