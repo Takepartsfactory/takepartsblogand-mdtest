@@ -578,9 +578,9 @@ body {
   100% { background-position: -200% 0; }
 }
 
-/* Sonos-Inspired Premium Animations */
-
-/* Video Background Support */
+/* Sonos-Inspired Premium Animations - Utilities Layer */
+@layer utilities {
+  /* Video Background Support */
 .video-background {
   position: absolute;
   top: 0;
@@ -882,6 +882,7 @@ body {
     opacity: 1;
     transform: none;
   }
+}
 }
 
 /* Print Styles for Japanese Business Documents */
